@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "183377188085",
+    "project_id": "smart-home-9009c",
+    "storage_bucket": "smart-home-9009c.appspot.com",
+    "firebase_url": "https://smart-home-9009c-default-rtdb.asia-southeast1.firebasedatabase.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:183377188085:android:a604075cb836a0fe2ca1bc",
+        "android_client_info": {
+          "package_name": "com.example.final_project1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDleSy0TD_g4Q24i9UdWgrZHE4uAqvQtys"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
