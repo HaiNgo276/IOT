@@ -10,13 +10,13 @@ class FirebaseProvider with ChangeNotifier {
   String _temp = "0";
   String _hum = "0";
   bool _led1LivingRoom = false;
-  bool _led2LivingRoom = false;
+  bool _fanLivingRoom = false;
   bool _ledBedRoom = false;
   bool _ledKitchen = false;
 
   bool get led1LivingRoom => _led1LivingRoom;
 
-  bool get led2LivingRoom => _led2LivingRoom;
+  bool get fanLivingRoom => _fanLivingRoom;
 
   bool get ledBadRoom => _ledBedRoom;
 
@@ -35,11 +35,11 @@ class FirebaseProvider with ChangeNotifier {
     _led1LivingRoom = value;
     notifyListeners();
   }
-  Future<void> setLivingRoomLed2(bool value) async {
-    DatabaseReference led2LivingRoomRef =
-    firebaseDatabase.ref().child("livingRoom").child("led2");
-    await led2LivingRoomRef.set(value);
-    _led2LivingRoom = value;
+  Future<void> setLivingRoomFan(bool value) async {
+    DatabaseReference fanLivingRoomRef =
+    firebaseDatabase.ref().child("livingRoom").child("fan");
+    await fanLivingRoomRef.set(value);
+    _fanLivingRoom = value;
     notifyListeners();
   }
   Future<void> setBedRoomLed(bool value) async {
@@ -76,9 +76,9 @@ class FirebaseProvider with ChangeNotifier {
         .child("led1").once();
     _led1LivingRoom = led1LivingRoomRef.snapshot.value as bool;
 
-    var led2LivingRoomRef = await firebaseDatabase.ref().child("livingRoom")
-        .child("led2").once();
-    _led2LivingRoom = led2LivingRoomRef.snapshot.value as bool;
+    var fanLivingRoomRef = await firebaseDatabase.ref().child("livingRoom")
+        .child("fan").once();
+    _fanLivingRoom = fanLivingRoomRef.snapshot.value as bool;
 
     var ledBedRoomRef = await firebaseDatabase.ref().child("BedRoom")
         .child("led").once();
