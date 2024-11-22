@@ -1,4 +1,3 @@
-
 import 'package:final_project1/provider/firebase_provider.dart';
 import 'package:final_project1/widget/box_device.dart';
 import 'package:final_project1/widget/circle_tab_indicator.dart';
@@ -10,7 +9,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:dynamic_tabbar/dynamic_tabbar.dart';
 import 'package:provider/provider.dart';
 
-
 class HomePage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -20,8 +18,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final List<Map<String, String>> _devicesLiving = [
-    {"title": "Lighting 1", "icon": "lighting.png"},
-    {"title": "Lighting 2", "icon": "lighting.png"},
+    {"title": "Lighting", "icon": "lighting.png"},
+    {"title": "Fan", "icon": "fan.png"},
   ];
   final List<Map<String, String>> _devicesBed = [
     {"title": "Lighting", "icon": "lighting.png"},
@@ -58,9 +56,11 @@ class _HomePageState extends State<HomePage> {
                         )
                       ],
                     ),
-                    TextButton(onPressed: () {
-                      fire.logout(context);
-                    }, child: const Text("Logout"))
+                    TextButton(
+                        onPressed: () {
+                          fire.logout(context);
+                        },
+                        child: const Text("Logout"))
                   ],
                 ),
               ),
@@ -128,13 +128,13 @@ class _HomePageState extends State<HomePage> {
                                 icon: _devicesLiving.elementAt(index)["icon"],
                                 value:
                                     _devicesLiving.elementAt(index)["title"] ==
-                                            "Lighting 1"
+                                            "Lighting"
                                         ? fire.led1LivingRoom
                                         : fire.led2LivingRoom,
                                 onChanged: (value) {
                                   String title =
                                       _devicesLiving.elementAt(index)["title"]!;
-                                  if (title == "Lighting 1") {
+                                  if (title == "Lighting") {
                                     fire.setLivingRoomLed1(value);
                                   } else {
                                     fire.setLivingRoomLed2(value);
